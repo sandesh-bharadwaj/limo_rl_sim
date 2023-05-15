@@ -1,0 +1,12 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/melodic/limo_grobot_ws/devel/lib/python2.7/dist-packages",
+        "/home/melodic/limo_ws/devel/lib/python2.7/dist-packages",
+        "/opt/ros/melodic/lib/python2.7/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/melodic/limo_grobot_ws/devel/lib/python2.7/dist-packages",
+        "/home/melodic/limo_ws/devel/lib/python2.7/dist-packages",
+        "/opt/ros/melodic/lib/python2.7/dist-packages"
+    ]
+}

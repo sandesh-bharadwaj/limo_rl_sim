@@ -1,0 +1,33 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/melodic/limo_grobot_ws/devel/include/**",
+        "/home/melodic/limo_ws/devel/include/**",
+        "/opt/ros/melodic/include/**",
+        "/home/melodic/limo_ws/src/ugv_sim/ranger/four_wheel_steering_controller/include/**",
+        "/home/melodic/limo_grobot_ws/src/gazebo_ros_link_attacher/include/**",
+        "/home/melodic/limo_grobot_ws/src/grobot/grobot_navigation/include/**",
+        "/home/melodic/limo_grobot_ws/src/grobot/grobot_utilities/include/**",
+        "/home/melodic/limo_grobot_ws/src/ugv_sim/limo/limo_gazebo_sim/include/**",
+        "/home/melodic/limo_grobot_ws/src/ugv_sim/scout/scout_gazebo_sim/include/**",
+        "/home/melodic/limo_grobot_ws/src/ugv_sim/hunter/steer_bot_hardware_gazebo/include/**",
+        "/home/melodic/limo_grobot_ws/src/ugv_sim/hunter/steer_drive_controller/include/**",
+        "/home/melodic/limo_grobot_ws/src/ugv_sim/tracer/tracer_gazebo_sim/include/**",
+        "/home/melodic/limo_grobot_ws/src/turtlebot3/turtlebot3_slam/include/**",
+        "/home/melodic/limo_ws/src/ugv_sim/ranger/urdf_geometry_parser/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
