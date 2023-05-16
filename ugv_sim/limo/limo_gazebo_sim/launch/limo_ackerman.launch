@@ -1,4 +1,4 @@
-<!-- <?xml version="1.0"?> -->
+<?xml version="1.0"?>
 <launch>
 
     <arg name="robot_namespace" default="/"/>
@@ -44,14 +44,8 @@
 
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find limo_description)/rviz/model_display.rviz" />
 
-    <!-- Load first patrol -->
-    <include file="$(find grobot_bringup)/launch/includes/patrol_robot.xml">
-        <arg name="name" value="karl" />
-        <arg name="x" value="-2.0" />
-        <arg name="y" value="2.0" />
-        <arg name="map_file" value="$(arg map_file)" />
-        <arg name="radius" value="1.5" />
-        <arg name="clockwise" value="true" />
-        <arg name="has_marker" value="true" />
-    </include>
+
+    <!-- Spawn dynamic patrol robot -->
+    <node pkg="timed_roslaunch" type="timed_roslaunch.sh"
+        args="30 limo_gazebo_sim timed_patrol_robot.launch $(arg map_file)" name="timed_roslaunch" output="screen"/>
 </launch>

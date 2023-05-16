@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <launch>
     <arg name="robot_namespace" default="/"/>
-    <arg name="world_name" default="$(find limo_gazebo_sim)/worlds/empty.world"/>
+    <arg name="world_name" default="$(find grobot_gazebo)/worlds/example.world"/>
+    <arg name="map_file" default="$(find grobot_maps)/maps/example_world.yaml" />
 
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
         <arg name="world_name" value="$(arg world_name)"/>
