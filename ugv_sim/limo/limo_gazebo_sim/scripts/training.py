@@ -39,19 +39,26 @@ cv2.namedWindow("Image Window",1)
 
 # # Subscribe to cmd_vel stream (to move robot)
 # twist_sub = rospy.Subscriber("/cmd_vel", Twist, twist_callback)
-# # twist_pub = rospy.Publisher("/cmd_vel",Twist, queue_size=10)
+twist_pub = rospy.Publisher("/cmd_vel",Twist, queue_size=10)
 
 
-# def publisher(x_linear, z_angular):
-#     twist_msg = Twist()
-#     twist_msg.linear.x = x_linear
-#     twist_msg.linear.y = 0
-#     twist_msg.linear.z = 0
-#     twist_msg.angular.x = 0
-#     twist_msg.angular.y = 0
-#     twist_msg.angular.z = z_angular
-#     twist_pub.publish(twist_msg)
+def publisher(x_linear, z_angular):
+    twist_msg = Twist()
+    twist_msg.linear.x = x_linear
+    twist_msg.linear.y = 0
+    twist_msg.linear.z = 0
+    twist_msg.angular.x = 0
+    twist_msg.angular.y = 0
+    twist_msg.angular.z = z_angular
+    twist_pub.publish(twist_msg)
 
+def shutdown_hook():
+    publisher(0.0,0.0)
 
+rospy.on_shutdown(shutdown_hook)
+
+sent_msg=False
 while not rospy.is_shutdown():
+    if not sent_msg:
+        publisher(0.2,1.5)
     rospy.spin()
