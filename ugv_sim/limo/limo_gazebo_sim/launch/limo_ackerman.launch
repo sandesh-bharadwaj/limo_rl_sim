@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <launch>
-
     <arg name="robot_namespace" default="/"/>
     <!-- <arg name="world_name" default="$(find limo_gazebo_sim)/worlds/empty.world"/> -->
     <arg name="world_name" default="$(find grobot_gazebo)/worlds/example.world" />
@@ -46,6 +45,11 @@
 
 
     <!-- Spawn dynamic patrol robot -->
-    <node pkg="timed_roslaunch" type="timed_roslaunch.sh"
-        args="30 limo_gazebo_sim timed_patrol_robot.launch $(arg map_file)" name="timed_roslaunch" output="screen"/>
+    <include file="$(find timed_roslaunch)/timed_roslaunch.launch">
+        <arg name="time" value="30" />
+        <arg name="pkg" value="limo_gazebo_sim" />
+        <arg name="file" value="timed_patrol_robot.launch" />
+        <arg name="value" value="map_file:=$(arg map_file)" />
+        <arg name="node_name" value="timed_roslaunch" /> <!-- This is optional argument -->
+    </include>
 </launch>

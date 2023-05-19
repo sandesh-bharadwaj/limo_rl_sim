@@ -1,6 +1,6 @@
+<?xml version="1.0"?>
 <launch>
   <arg name="map_file" default="$(find grobot_maps)/maps/example_world.yaml" />
-
   <include file="$(find grobot_bringup)/launch/includes/patrol_robot.xml">
     <arg name="name" value="karl" />
     <arg name="x" value="-2.0" />
@@ -11,3 +11,4 @@
     <arg name="has_marker" value="true" />
   </include>
 </launch>
+  
