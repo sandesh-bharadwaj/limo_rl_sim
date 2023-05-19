@@ -32,6 +32,20 @@ To have manual control of Limo (requires limo_ackerman to have been launched):
 rosrun rqt_robot_steering rqt_robot_steering
 ```
 
+*To reset the simulation*:
+```
+rosservice call /gazebo/reset_world "{}"
+```
+In Python:
+```
+import rospy
+from std_srvs.srv import Empty
+reset_simulation_client = rospy.ServiceProxy('/gazebo/reset_world',Empty)
+
+rospy.wait_for_service('/gazebo/reset_world')
+reset_simulation_client()
+```
+
 
 # For modifying files (Careful with this)
 ```
