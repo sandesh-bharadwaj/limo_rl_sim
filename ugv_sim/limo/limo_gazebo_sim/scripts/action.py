@@ -24,6 +24,7 @@ def select_greedy_action(state, policy_net, action_size):
 
     # Get the Q-values for all actions in the current state
     q_values = policy_net(state.reshape(1,3,96,96))
+    #.reshape(1,3,96,96)
 
     # Select the action with the highest Q-value (i.e., the greedy action)
     _, action = q_values.max(1)
@@ -70,4 +71,4 @@ def get_action_set():
     list
         list of available actions
     """
-    return [[-0.5,-2.0], [-0.5,-1.0], [-0.5,0], [0.5,0],[0.5,1.0],[0.5,2.0]]
+    return [[0.1,-0.2], [0.1,0.2], [0.1,-0.5],[0.1,0.5],[0.0,0.0]]

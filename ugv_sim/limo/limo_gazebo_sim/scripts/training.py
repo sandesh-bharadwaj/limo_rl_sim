@@ -9,6 +9,8 @@ rospy.init_node("test",anonymous=True)
 rospy.loginfo("Starting test node")
 
 bridge = CvBridge()
+cv_image=None
+#global cv_image
 
 def show_image(img):
     cv2.imshow("Image Window", img)
@@ -18,14 +20,14 @@ def show_image(img):
 def image_callback(img_msg):
     # rospy.loginfo(img_msg.header)
     # cv_image = bridge.imgmsg_to_cv2(img_msg, "passthrough")
-
+    global cv_image
     try:
         cv_image = bridge.imgmsg_to_cv2(img_msg, "passthrough")
     except CvBridgeError as e:
         rospy.logerr("CvBridge Error: {0}".format(e))
-    
+    cv_image=cv2.resize(cv_image,(96,96), interpolation = cv2.INTER_AREA)
     cv_image = cv2.cvtColor(cv_image,cv2.COLOR_RGB2BGR)
-
+    #return cv_image
     show_image(cv_image)
 
 def twist_callback(msg):
@@ -36,9 +38,12 @@ def twist_callback(msg):
 # Subscribe to image stream
 image_sub = rospy.Subscriber("/limo/color/image_raw", Image, image_callback)
 cv2.namedWindow("Image Window",1)
+#global cv_image
+#cv2.imshow("Image Window 2", cv_image)
+#cv2.namedWindow("Image Window 2", 1)
 
 # # Subscribe to cmd_vel stream (to move robot)
-# twist_sub = rospy.Subscriber("/cmd_vel", Twist, twist_callback)
+# twist_sub = rospy.Subscri#ber("/cmd_vel", Twist, twist_callback)
 twist_pub = rospy.Publisher("/cmd_vel",Twist, queue_size=10)
 
 
